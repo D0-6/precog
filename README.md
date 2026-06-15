@@ -82,16 +82,23 @@ WebSocket → React Dashboard (:5173)
 
 ---
 
-### Step 2 — Get your Splunk API Token
+### Step 2 — Get your Splunk API Token (also called MCP Token)
+
+PreCog connects to Splunk's **REST/Management API on port 8089** to query live logs. This token authenticates that connection — it's also referred to as the MCP (Management Console Port) token.
 
 1. Open **Splunk Web** at `http://localhost:8000`
 2. Top menu → **Settings → Tokens**
-3. Click **New Token**
-4. Fill in:
+3. Click **Enable Token Authentication** if not already enabled
+4. Click **New Token**
+5. Fill in:
    - **User**: `admin` (or your Splunk username)
    - **Audience**: `precog`
    - **Expiration**: `30d`
-5. Click **Create** → **copy the token value immediately** (shown only once)
+6. Click **Create** → **copy the token value immediately** (shown only once)
+7. Paste it into `backend/.env` as both `SPLUNK_TOKEN=` and this is what `SPLUNK_MCP_URL` authenticates against
+
+> `SPLUNK_MCP_URL=https://localhost:8089` is Splunk's Management/REST API port.
+> `SPLUNK_TOKEN` is your Bearer token for that API — same thing as the MCP token.
 
 ---
 
