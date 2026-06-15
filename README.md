@@ -176,6 +176,21 @@ You should see JSON events like:
 {"service": "payments-api", "level": "WARN", "cpu_usage": 78.3, "memory_usage": 65.1, "error_rate": 2.4, "latency_ms": 890}
 ```
 
+#### 4d — (Optional) Use Real-World Log Datasets from LogHub
+
+If you don't have live service logs, you can use **[LogHub](https://github.com/logpai/loghub)** — a collection of real-world system log datasets (HDFS, Apache, Linux, Windows, etc.) — as sample data.
+
+**How to feed LogHub logs into Splunk:**
+
+1. Download any dataset from [github.com/logpai/loghub](https://github.com/logpai/loghub) (e.g., `HDFS.log`, `Apache.log`)
+2. In Splunk Web → **Settings → Data Inputs → Files & Directories → New**
+3. Set the file path to your downloaded `.log` or `.csv` file
+4. Set **Index**: `main`
+5. Set **Source type**: `_json` (for CSV) or `syslog` (for raw logs)
+6. Click **Save**
+
+PreCog will automatically pick up anomalies from these logs and generate AI risk predictions.
+
 ---
 
 ### Step 5 — Start the Backend
