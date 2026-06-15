@@ -1,0 +1,31 @@
+# Environment
+.env
+backend/.env
+
+# Database
+*.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+logs/
+*.log
+
+# Dev/scratch files
+fix.py
+delete_old_data.py
+frontend/src/App.jsx.bak
+
+# OS
+.DS_Store
+Thumbs.db
